@@ -1,5 +1,5 @@
 namespace empresa{
-    class Funcionario extends Pessoa{
+    export class Funcionario extends Pessoa{
         private codFuncionario: number;
         private valorDia: number;
 
@@ -7,7 +7,7 @@ namespace empresa{
             return this.codFuncionario;
         }
 
-        setCodFuncionario(cod: number): void{
+        setCodFuncionario(cod:number): void{
             this.codFuncionario = cod;
         }
 
@@ -15,13 +15,19 @@ namespace empresa{
             return this.valorDia;
         }
 
-        setValorDia(valor: number): void{
+        setValorDia(valor:number): void{
             this.valorDia = valor;
         }
 
-        calcularSalario(): number{
-            return this.valorDia * 30;
+                
+        calcularSalario(desconto?:number): number{
+
+            if(desconto == undefined){
+                return (this.valorDia * 30)
+            }else{
+                return (this.valorDia * 30)-desconto;
+            }
+            
         }
-        
     }
 }
